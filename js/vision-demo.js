@@ -10,9 +10,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const canvasPreview = document.getElementById('vision-canvas-preview');
   const scenarioButtons = document.querySelectorAll('.scenario-btn');
-  const fpsMetric = document.getElementById('hud-fps');
-  const latencyMetric = document.getElementById('hud-latency');
-  const confMetric = document.getElementById('hud-conf');
   const modelSpecList = document.getElementById('model-spec-list');
   const liveLogs = document.getElementById('live-detections-list');
   const scenarioTitle = document.getElementById('scenario-title');
@@ -182,9 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update HUD & Text
     scenarioTitle.textContent = data.title;
     scenarioDesc.textContent = data.desc;
-    fpsMetric.textContent = data.fps;
-    latencyMetric.textContent = data.latency;
-    confMetric.textContent = data.conf;
 
     // Update Model Specs
     modelSpecList.innerHTML = data.specs.map(s => `
