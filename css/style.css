@@ -81,7 +81,6 @@ body {
     radial-gradient(ellipse 50% 30% at 10% 80%, rgba(16, 185, 129, 0.02), transparent 50%);
   background-attachment: fixed;
   background-repeat: no-repeat;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
