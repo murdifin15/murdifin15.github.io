@@ -3,34 +3,35 @@
    Concept: Quiet Luxury & High-Tech Precision ("Mewah Tapi Tidak Alay")
    ========================================================================== */
 
-:root {
-  /* Color Palette - Obsidian & Champagne Gold */
-  --bg-primary: #07080b;
-  --bg-secondary: #0d0f15;
-  --bg-tertiary: #131722;
-  --bg-card: rgba(16, 20, 30, 0.72);
-  --bg-card-hover: rgba(22, 27, 40, 0.85);
-  --bg-glass: rgba(255, 255, 255, 0.025);
+:root,
+[data-theme="light"] {
+  /* Color Palette - Permanent Light Mode & Champagne Gold */
+  --bg-primary: #fbfbfa;
+  --bg-secondary: #f3f4f6;
+  --bg-tertiary: #e5e7eb;
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-card-hover: rgba(255, 255, 255, 0.98);
+  --bg-glass: rgba(0, 0, 0, 0.02);
   
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.14);
-  --border-gold: rgba(212, 175, 55, 0.35);
-  --border-gold-glow: rgba(212, 175, 55, 0.6);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(0, 0, 0, 0.14);
+  --border-gold: rgba(180, 140, 30, 0.35);
+  --border-gold-glow: rgba(180, 140, 30, 0.6);
 
-  --accent-gold: #d4af37;
-  --accent-gold-light: #f3d47a;
-  --accent-gold-dark: #aa851e;
-  --accent-gold-glow: rgba(212, 175, 55, 0.12);
+  --accent-gold: #b3881b;
+  --accent-gold-light: #946f13;
+  --accent-gold-dark: #6e520b;
+  --accent-gold-glow: rgba(180, 140, 30, 0.1);
   
-  --accent-cyan: #38bdf8;
-  --accent-emerald: #10b981;
-  --accent-emerald-glow: rgba(16, 185, 129, 0.15);
-  --accent-indigo: #818cf8;
+  --accent-cyan: #0284c7;
+  --accent-emerald: #059669;
+  --accent-emerald-glow: rgba(5, 150, 105, 0.15);
+  --accent-indigo: #4f46e5;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
   --text-muted: #64748b;
-  --text-gold: #e2ba4f;
+  --text-gold: #946f13;
 
   /* Typography */
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -38,10 +39,10 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Shadows & Elevations */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
-  --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.15);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+  --shadow-gold: 0 0 30px rgba(180, 140, 30, 0.12);
 
   /* Layout & Geometry */
   --radius-sm: 8px;
@@ -53,36 +54,6 @@
   /* Transitions */
   --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Light Theme Variables */
-[data-theme="light"] {
-  --bg-primary: #fbfbfa;
-  --bg-secondary: #f3f4f6;
-  --bg-tertiary: #e5e7eb;
-  --bg-card: rgba(255, 255, 255, 0.85);
-  --bg-card-hover: rgba(255, 255, 255, 0.98);
-  --bg-glass: rgba(0, 0, 0, 0.02);
-
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --border-medium: rgba(0, 0, 0, 0.14);
-  --border-gold: rgba(180, 140, 30, 0.35);
-  --border-gold-glow: rgba(180, 140, 30, 0.6);
-
-  --accent-gold: #b3881b;
-  --accent-gold-light: #946f13;
-  --accent-gold-dark: #6e520b;
-  --accent-gold-glow: rgba(180, 140, 30, 0.1);
-
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --text-gold: #946f13;
-
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
-  --shadow-gold: 0 0 30px rgba(180, 140, 30, 0.12);
 }
 
 /* Reset & Base Styles */
