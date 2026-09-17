@@ -1531,6 +1531,26 @@ img {
   align-items: center;
   justify-content: center;
   color: var(--accent-gold);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+a.channel-icon {
+  cursor: pointer;
+}
+
+a.channel-icon:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.22);
+}
+
+[data-theme="light"] a.channel-icon:hover {
+  background: #fefce8;
+  border-color: #ca8a04;
+  color: #854d0e;
 }
 
 .channel-details h4 {
@@ -1540,11 +1560,25 @@ img {
   letter-spacing: 0.05em;
 }
 
-.channel-details p {
+.channel-details p,
+.channel-link {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-top: 2px;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.channel-link:hover {
+  color: var(--accent-gold);
+}
+
+.channel-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .copy-btn {
