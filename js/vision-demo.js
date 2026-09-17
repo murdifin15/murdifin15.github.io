@@ -174,29 +174,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderScenario(key) {
     const data = scenarios[key];
-    if (!data) return;
+    if (!data || !canvasPreview) return;
 
-    // Update HUD & Text
-    scenarioTitle.textContent = data.title;
-    scenarioDesc.textContent = data.desc;
+    try {
+      if (scenarioTitle) scenarioTitle.textContent = data.title;
+      if (scenarioDesc) scenarioDesc.textContent = data.desc;
 
-    // Update Model Specs
-    modelSpecList.innerHTML = data.specs.map(s => `
-      <div class="spec-item">
-        <span class="spec-name">${s.label}</span>
-        <span class="spec-val">${s.val}</span>
-      </div>
-    `).join('');
+      // Safe checks for any remaining or cached HUD elements
+      const fpsEl = document.getElementById('hud-fps');
+      const latEl = document.getElementById('hud-latency');
+      const confEl = document.getElementById('hud-conf');
+      if (fpsEl && data.fps) fpsEl.textContent = data.fps;
+      if (latEl && data.latency) latEl.textContent = data.latency;
+      if (confEl && data.conf) confEl.textContent = data.conf;
 
-    // Update Live Logs
-    liveLogs.innerHTML = data.logs.map(l => `
-      <div class="det-log-entry ${l.class}">
-        <span>${l.text}</span>
-      </div>
-    `).join('');
+      // Update Model Specs
+      if (modelSpecList && data.specs) {
+        modelSpecList.innerHTML = data.specs.map(s => `
+          <div class="spec-item">
+            <span class="spec-name">${s.label}</span>
+            <span class="spec-val">${s.val}</span>
+          </div>
+        `).join('');
+      }
+
+      // Update Live Logs
+      if (liveLogs && data.logs) {
+        liveLogs.innerHTML = data.logs.map(l => `
+          <div class="det-log-entry ${l.class}">
+            <span>${l.text}</span>
+          </div>
+        `).join('');
+      }
+    } catch (e) {
+      console.warn('Metadata update notice:', e);
+    }
 
     // Generate SVG bounding boxes
-    const boxesHtml = data.objects.map(obj => {
+    const boxesHtml = (data.objects || []).map(obj => {
       const pillHeight = 22;
       let pillY;
       if (obj.pillPlacement === 'bottom') {
@@ -262,8 +277,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
       <div class="scan-line"></div>
-      <svg class="vision-svg-overlay" viewBox="${data.viewBox}" preserveAspectRatio="xMidYMid slice">
-        <image href="${data.image}" x="0" y="0" width="${data.imgW}" height="${data.imgH}" preserveAspectRatio="xMidYMid slice"/>
+      <svg class="vision-svg-overlay" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="${data.viewBox}" preserveAspectRatio="xMidYMid slice">
+        <image href="${data.image}" xlink:href="${data.image}" x="0" y="0" width="${data.imgW}" height="${data.imgH}" preserveAspectRatio="xMidYMid slice"/>
         ${data.visualGuides || ''}
         ${boxesHtml}
       </svg>
