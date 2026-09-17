@@ -381,4 +381,11 @@ document.addEventListener('DOMContentLoaded', () => {
       contactForm.reset();
     });
   }
+
+  // 8. Email Direct Action Feedback
+  document.querySelectorAll('.email-smart-link').forEach(link => {
+    link.addEventListener('click', () => {
+      showToast('Membuka Gmail (murdifin15@gmail.com)...');
+    });
+  });
 });
