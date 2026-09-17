@@ -23,13 +23,14 @@
     try { localStorage.clear(); } catch(e){}
   </script>
 
-  <!-- Google Fonts: Outfit (Heading), Inter (Body), JetBrains Mono (Tech/Metrics) -->
+  <!-- Optimized Font Preloading to Eliminate Layout Shift (CLS) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Outfit:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Outfit:wght@600;700;800&display=swap">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=25">
+  <link rel="stylesheet" href="css/style.css?v=30">
 </head>
 <body>
 
@@ -1235,7 +1236,7 @@
   <div id="toast-container" class="toast-container"></div>
 
   <!-- Scripts -->
-  <script src="js/vision-demo.js?v=25"></script>
-  <script src="js/main.js?v=25"></script>
+  <script src="js/vision-demo.js?v=30"></script>
+  <script src="js/main.js?v=30"></script>
 </body>
 </html>
