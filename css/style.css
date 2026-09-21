@@ -217,6 +217,12 @@ img {
   box-shadow: 0 2px 8px rgba(180, 140, 30, 0.15);
 }
 
+.brand-photo {
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+}
+
 .brand-text {
   display: flex;
   flex-direction: column;
