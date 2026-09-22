@@ -1924,16 +1924,16 @@ a.channel-icon:hover {
   }
 
   .nav-menu {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    bottom: 0;
+    height: calc(100dvh - 60px);
     background: rgba(251, 251, 250, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
-    padding: 100px 32px 48px;
+    padding: 32px 32px 48px;
     gap: 8px;
     display: none;
     z-index: 999;
@@ -2432,7 +2432,7 @@ a.channel-icon:hover {
   }
 
   .nav-menu {
-    padding: 90px 20px 40px;
+    padding: 24px 20px 40px;
   }
 
   .nav-link {
