@@ -9,24 +9,46 @@ document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.setAttribute('data-theme', 'light');
   localStorage.removeItem('murdifin_theme');
 
-  // 2. Mobile Menu Toggle
+  // 2. Mobile Drawer Menu
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const navMenu = document.getElementById('nav-menu');
+  const drawerCloseBtn = document.getElementById('drawer-close-btn');
+  const drawerBackdrop = document.getElementById('drawer-backdrop');
 
-  if (mobileToggle && navMenu) {
+  function openDrawer() {
+    if (!navMenu) return;
+    navMenu.classList.add('open');
+    if (drawerBackdrop) drawerBackdrop.classList.add('active');
+    if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    if (!navMenu) return;
+    navMenu.classList.remove('open');
+    if (drawerBackdrop) drawerBackdrop.classList.remove('active');
+    if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  if (mobileToggle) {
     mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      const isOpen = navMenu.classList.contains('open');
-      mobileToggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Close menu when clicking nav links
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-      });
+      navMenu.classList.contains('open') ? closeDrawer() : openDrawer();
     });
   }
+
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+  }
+
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', closeDrawer);
+  }
+
+  // Close drawer when clicking nav links
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
 
   // 3. Active Nav Link on Scroll
   const sections = document.querySelectorAll('section[id]');
